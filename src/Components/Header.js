@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import SearchInput from "./form/SearchInput";
 import useCategory from "../hooks/useCategory";
 import { useCart } from "../context/cart";
-import '../App.css'
+import '../App.css';
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -40,6 +40,8 @@ const Header = () => {
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -57,7 +59,7 @@ const Header = () => {
               </h5>
               <button
                 type="button"
-                className="btn-close text-reset"
+                className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
@@ -168,3 +170,4 @@ const Header = () => {
 };
 
 export default Header;
+  

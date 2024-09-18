@@ -15,8 +15,8 @@ const Home = () => {
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
   const [total, setTotal] = useState(0);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -50,11 +50,6 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    getAllCategory();
-    getTotal();
-  }, []);
-
   // Get products
   const getAllProducts = async () => {
     try {
@@ -82,11 +77,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
+    getAllCategory();
+    getTotal();
+    getAllProducts(); // Initial load of products
+    setInitialLoad(false); // Set initialLoad to false after first load
+  }, []);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (!initialLoad && (checked.length || radio.length)) {
+      filterProduct();
+    }
   }, [checked, radio]);
 
   // Filter products
@@ -124,7 +124,7 @@ const Home = () => {
                     {c.name}
                   </Checkbox>
                 ))}
-    
+
                 <h4 className="text-center mt-3">Filter By Prices</h4>
                 <div className="d-flex flex-column">
                   <Radio.Group onChange={(e) => setRadio(e.target.value)}>
@@ -137,7 +137,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-    
+
             {/* Mobile Filter Button */}
             <div className="d-md-none text-center">
               <button
@@ -150,7 +150,7 @@ const Home = () => {
                 Open Filters
               </button>
             </div>
-    
+
             {/* Offcanvas Filter for Mobile */}
             <div
               className="offcanvas offcanvas-start"
@@ -179,7 +179,7 @@ const Home = () => {
                     {c.name}
                   </Checkbox>
                 ))}
-    
+
                 <h4 className="text-center mt-3">Filter By Prices</h4>
                 <div className="d-flex flex-column">
                   <Radio.Group onChange={(e) => setRadio(e.target.value)}>
@@ -192,7 +192,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-    
+
             <div className="col-md-10">
               <h1 className="text-center">All Products {`(${total})`}</h1>
               <div className="d-flex flex-wrap justify-content-center">
