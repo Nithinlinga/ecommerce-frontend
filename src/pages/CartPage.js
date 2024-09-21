@@ -5,7 +5,9 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../context/Auth";
 import axios from "axios";
 import DropIn from "braintree-web-drop-in-react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
+// import { toast } from "react-toastify";
+
 
 const CartPage = () => {
   const [cart, setCart] = useCart();

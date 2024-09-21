@@ -5,8 +5,10 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../Components/Prices";
 import { useNavigate } from "react-router";
 import { useCart } from "../context/cart";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+
 import Spinner from "../Components/Spinner";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const [cart, setCart] = useCart();
@@ -232,9 +234,7 @@ const Home = () => {
                               "cart",
                               JSON.stringify([...cart, p])
                             );
-                            toast.success("Item added to Cart", {
-                              position: toast.POSITION.TOP_CENTER,
-                            });
+                            toast.success("Item added to Cart");
                           }}
                         >
                           ADD TO CART

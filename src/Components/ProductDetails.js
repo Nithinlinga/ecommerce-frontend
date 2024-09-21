@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
 import { useCart } from "../context/cart";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -66,7 +66,7 @@ const ProductDetails = () => {
                     "cart",
                     JSON.stringify([...cart,product])
                    );
-                    toast.success("Item added to Cart", {position: toast.POSITION.TOP_CENTER})
+                    toast.success("Item added to Cart")
                   }}>
                     ADD TO CART</button>
         </div>
@@ -91,7 +91,7 @@ const ProductDetails = () => {
                     "cart",
                     JSON.stringify([...cart,p])
                    );
-                    toast.success("Item added to Cart", {position: toast.POSITION.TOP_CENTER})
+                    toast.success("Item added to Cart")
                   }}>
                     ADD TO CART</button>
               </div>

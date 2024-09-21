@@ -3,11 +3,13 @@ import Layout from '../Components/Layout';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router';
 import Spinner from '../Components/Spinner';
-import { Header } from 'antd/es/layout/layout';
+import toast from 'react-hot-toast';
+import { useCart } from '../context/cart';
 
 const CategoryProduct = () => {
     const navigate = useNavigate();
     const params = useParams();
+    const [cart, setCart]=useCart()
     const [product, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
     const [loading,setLoading]=useState(false);
@@ -71,7 +73,15 @@ const CategoryProduct = () => {
                                             >
                                                 More Details
                                             </button>
-                                            <button className="btn btn-primary btn-sm">
+                                            <button className="btn btn-primary btn-sm"
+                                            onClick={() => {
+                                                setCart([...cart, p]);
+                                                localStorage.setItem(
+                                                  "cart",
+                                                  JSON.stringify([...cart, p])
+                                                );
+                                                toast.success("Item added to Cart");
+                                              }}>
                                                 ADD TO CART
                                             </button>
                                         </div>

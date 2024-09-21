@@ -3,7 +3,7 @@ import Layout from './Layout'
 import { useSearch } from '../context/Search'
 import { useNavigate } from 'react-router';
 import { useCart } from '../context/cart';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 
 const Search = () => {
@@ -35,7 +35,7 @@ const Search = () => {
                     "cart",
                     JSON.stringify([...cart,p])
                    );
-                    toast.success("Item added to Cart", {position: toast.POSITION.TOP_CENTER})
+                    toast.success("Item added to Cart")
                   }}>
                     ADD TO CART</button>
                 

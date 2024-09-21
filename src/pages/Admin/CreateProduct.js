@@ -4,7 +4,7 @@ import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import Adminmenu from "../../Components/Adminmenu";
 import Layout from "../../Components/Layout";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 const { Option } = Select;
 
 const CreateProduct = () => {

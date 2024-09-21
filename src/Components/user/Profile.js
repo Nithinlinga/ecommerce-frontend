@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../Layout'
 import UserMenu from './UserMenu'
 import { useAuth } from '../../context/Auth'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast'
 import axios from 'axios'
 
 const Profile = () => {
@@ -38,7 +38,7 @@ useEffect(()=>{
         ls=JSON.parse(ls);
         ls.user=data.updatedUser
         localStorage.setItem('auth',JSON.stringify(ls));
-        toast.success("Profile Updated Successfully",{position: toast.POSITION.TOP_CENTER})
+        toast.success("Profile Updated Successfully")
       }
     } catch (error) {
       console.log(error);

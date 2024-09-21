@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Adminmenu from "../../Components/Adminmenu";
 import Layout from "../../Components/Layout";
 import axios from "axios";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { useAuth } from "../../context/Auth";
 import { Select } from "antd";
 const {Option}=Select;
