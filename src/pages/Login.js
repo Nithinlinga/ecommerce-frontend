@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../Components/Layout'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast';
 import axios from 'axios'
 import { useNavigate,useLocation} from "react-router";
 import { useState } from 'react'
@@ -18,7 +18,7 @@ const handleSubmit= async (e)=>{
   try {
     const res=await axios.post(`https://ecommerce-backend-ebon-iota.vercel.app/api/v1/auth/login`,{email,password});
     if(res.data.success){
-      toast.success(res.data.message, {position: toast.POSITION.TOP_CENTER} );
+      toast.success(res.data.message);
       setAuth({
         ...auth,
         user:res.data.user,
@@ -28,7 +28,7 @@ const handleSubmit= async (e)=>{
       navigate(location.state || "/")
     }
     else{
-      toast.error(res.data.message,{position: toast.POSITION.TOP_CENTER})
+      toast.error(res.data.message)
       // navigate("/login")
     }
   } catch (error) {

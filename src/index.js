@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom';
 import { AuthProvider } from './context/Auth';
-import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 import { CartProvider } from './context/cart';
 import { SearchProvider } from './context/Search';
 // import 'antd/dist/reset.css'
@@ -17,7 +17,7 @@ root.render(
       <CartProvider>
       <Router>
     <App />
-    <ToastContainer />
+    <Toaster />
     </Router>
       </CartProvider>
 

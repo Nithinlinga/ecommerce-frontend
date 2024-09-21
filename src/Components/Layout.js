@@ -1,7 +1,7 @@
 import React from 'react'
 // import Header1 from './header1'
 import {Helmet} from 'react-helmet'
-import {ToastContainer} from 'react-toastify'
+import {Toaster} from 'react-hot-toast'
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css'
 const Layout = ({children,title, description, keywords, author}) => {
@@ -16,7 +16,7 @@ const Layout = ({children,title, description, keywords, author}) => {
       </Helmet>
     
       <main >
-      <ToastContainer/>
+      <Toaster/>
         {children}
       </main>
       {/* <Footer /> */}

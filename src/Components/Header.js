@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../context/Auth";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import SearchInput from "./form/SearchInput";
 import useCategory from "../hooks/useCategory";
 import { useCart } from "../context/cart";
@@ -19,9 +19,7 @@ const Header = () => {
       token: "",
     });
     localStorage.removeItem("auth");
-    toast.success("Logout Successfully", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    toast.success("Logout Successfully");
   };
 
   return (
