@@ -20,11 +20,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
   const navigate = useNavigate();
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const handleFilterClick = () => {
-    setIsFilterOpen(!isFilterOpen); // Toggle filter window visibility
-  };
 
   // Get total product count
   const getTotal = async () => {
@@ -88,7 +84,7 @@ const Home = () => {
   useEffect(() => {
     if (!initialLoad && (checked.length || radio.length)) {
       filterProduct();
-    }
+    } 
   }, [checked, radio]);
 
   // Filter products
